@@ -1,4 +1,4 @@
-from constants.settings import DRIVER
+from pypop.constants.settings import DRIVER
 
 
 class SeleniumWrapper(object):
