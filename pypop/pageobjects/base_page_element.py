@@ -1,9 +1,7 @@
-import unittest
-
 from pypop.pageobjects import selenium_server_connection as ssc
 
 
-class BasePageElement(unittest.TestCase):
+class BasePageElement(object):
 
     def __init__(self, locator_info):
         self.by, self.locator = locator_info
@@ -18,8 +16,10 @@ class BasePageElement(unittest.TestCase):
         pass
 
 
-class BasePageElementClearFirst(unittest.TestCase):
-
+class BasePageElementClearFirst(object):
+    """
+    Why not simply use a clear flag on BasePageElement ?
+    """
     def __init__(self, locator_info):
         self.by, self.locator = locator_info
 
@@ -33,3 +33,19 @@ class BasePageElementClearFirst(unittest.TestCase):
 
     def __delete__(self, obj):
         pass
+
+
+class InputField(BasePageElement):
+    pass
+
+
+class PasswordField(BasePageElement):
+    pass
+
+
+class Checkbox(BasePageElement):
+    pass
+
+
+class Select(BasePageElement):
+    pass
