@@ -18,7 +18,7 @@ class BasePageObjectMeta(type):
         return instance
 
 
-class PageObject(BasePageObject):
+class PageObject(object):
     """
     The purpose of the metaclass is to prepare our instance, right when it
     is created. For example it will clone all the attributes of the class

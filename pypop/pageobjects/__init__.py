@@ -1,3 +1,3 @@
-from seleniumwrapper import SeleniumWrapper
+from selenium_wrapper import SeleniumWrapper
 
-selenium_server_connection = SeleniumWrapper()
+seleniumWrapper = SeleniumWrapper()
