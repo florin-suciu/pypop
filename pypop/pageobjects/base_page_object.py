@@ -1,4 +1,7 @@
+import copy
+
 from base_page_element import BasePageElement
+from pypop.pageobjects import SeleniumWrapper
 
 
 class BasePageObjectMeta(type):
@@ -15,6 +18,9 @@ class BasePageObjectMeta(type):
             if isinstance(value, BasePageElement):
                 setattr(instance, name, copy.deepcopy(value))
 
+        if 'url' in attrs:
+            instance.url = copy.deepcopy(attrs['url'])
+
         return instance
 
 
@@ -26,3 +32,9 @@ class PageObject(object):
     class instance.
     """
     __metaclass__ = BasePageObjectMeta
+
+    def __new__(cls,  *args, **kwargs):
+        ret = super(PageObject, cls).__new__(cls, *args, **kwargs)
+        ret.driver = SeleniumWrapper().getDriver()
+        return ret
+
